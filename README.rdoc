@@ -1,28 +1,6 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This failing test shows that an empty serialized column is marked as changed on initialization instead of being left as nil.
 
-Things you may want to cover:
+The bug is at https://github.com/rails/rails/blob/4-0-stable/activerecord/lib/active_record/core.rb#L462 where the attribute is compared directly instead of being obtained via: clone_attribute_value(:read_attribute, attr)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
